@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #mouse {
+      display: inline-block;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    #mouse:focus {
+      outline: 1px dashed black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p>Кликните по "изображению" мыши и перемещайте её с помощью клавиш со стрелками.</p>
+
+  <pre id="mouse">
+ _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+</pre>
+
+
+  <script>
+    mouse.tabIndex = "1";
+
+    mouse.onfocus = function(event){
+      this.style.left = this.getBoundingClientRect().left + 'px';
+      this.style.top = this.getBoundingClientRect().top + 'px';
+      this.style.position = 'fixed';
+      mouse.onkeydown = function (event) {
+      switch (event.key) {
+        case 'ArrowLeft':
+        if (parseInt(this.style.left) >= mouse.offsetWidth) 
+          this.style.left = parseInt(this.style.left) - this.offsetWidth + 'px';
+          return false;
+        case 'ArrowUp':
+          if (parseInt(this.style.top) >= mouse.offsetHeight)
+          this.style.top = parseInt(this.style.top) - this.offsetHeight + 'px';
+          return false;
+        case 'ArrowRight':
+          if (parseInt(this.style.left) + 2*mouse.offsetWidth < document.documentElement.clientWidth) 
+          this.style.left = parseInt(this.style.left) + this.offsetWidth + 'px';
+          return false;
+        case 'ArrowDown':
+          if (parseInt(this.style.top) + 2*mouse.offsetHeight < document.documentElement.clientHeight)
+          this.style.top = parseInt(this.style.top) + this.offsetHeight + 'px';
+          return false;
+      }
+    }
+    }
+  </script>
+
+</body>
+
+</html>
