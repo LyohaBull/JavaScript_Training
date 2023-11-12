@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		iframe {
+			width: 50%;
+			height: 300px;
+			float: right;
+		}
+		div {
+			height: 400px;
+			background: green;
+		}
+		div ~ div {
+			height: 100px;
+			float: left;
+			width: 49%;
+			padding-top: 30px;
+			background: initial;
+		}
+	</style>
+</head>
+<body>
+	<h1>Это основной сайт</h1>
+	<div> Some site </div>
+	<div>
+		<input type="text" name="" placeholder="Введите сюда текст для отправки в фрейм!" id="input">
+		<button onclick="sendMessage();"> Send! </button>
+		<button onclick="sandbox()">Запретить скрипты из фрейма!</button>
+		<button onclick="no_sandbox()">Разрешить всё!</button>
+	</div>
+
+	<iframe src="frame.html" id="frame"></iframe>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
