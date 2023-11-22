@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<p id="p1">Example: <i>italic</i> and <b>bold</b></p>
+	From <input id="start" type="number" value=1> StartOffset: <input id="startOff" type="number" value=1> - To <input id="end" type="number" value=3> EndOffset: <input id="endOff" type="number" value=1>
+	<div id="div"><button onclick="select();">Select</button><span id="span"></span></div>
+	<hr>
+	<div>
+		<p id="p3">Выдели меня: <i>курсив</i> и <b>жирный</b></p>
+		От <input id="start1" disabled> До <input id="end1" disabled>
+	</div>
+	<div>
+		<p id="p2">Example: <i>italic</i> and <b>bold</b></p>
+		<p id="result"></p>
+	</div>
+	<input type="text" id="input" value="Выдели что-нибудь">
+	<textarea id="area" style="width: 80%;height: 60px;">Переведи фокус на меня курсор окажется на 1-ой позиции</textarea>
+	<input id="input1" style="width: 200px;" value="1. Выдели Саню!">
+	<button id="button1">2. А затем нажми эту кнопку</button>
+	<button id="button2">Вставить ПРИВЕТ!</button>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.container {
+	display: flex;
+	height: 40px;
+	width: 1000px;
+	border: 1px solid grey;
+}
+.container div {
+	width: 1%;
+	background: green;
+	border: 1px solid black;
+	box-sizing: border-box;
+}

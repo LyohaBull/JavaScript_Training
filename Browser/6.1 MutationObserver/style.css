@@ -1,0 +1,9 @@
+div.true {
+	width: 700px;
+	height: 100px;
+	background: linear-gradient(45deg,green,blue);
+}
+div.bad {
+	height: 400px;
+	background: red;
+}
