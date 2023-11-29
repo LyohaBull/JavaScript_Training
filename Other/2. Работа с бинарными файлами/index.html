@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="main">
+		<div class="progressBar">
+				<div class="container">
+				  <div class="progress-container">
+				    <div class="progress" id="progress"> </div>
+				    <div class="circle circle1" id="circle1">25%</div>
+				    <div class="over" id="over">
+				    	<div class="circle active over1" >25%</div>
+				    	<div class="circle active over2" >50%</div>
+				    	<div class="circle active over3" >75%</div>
+				    	<div class="circle active over4" >100%</div>
+				    	<div class="line red" id="line"></div>
+				    </div>
+				    <div class="circle circle2" id="circle2">50%</div>
+				    <div class="circle circle3" id="circle3">75%</div>
+				    <div class="circle circle4" id="circle4">100%</div>
+				  </div>
+				  <div class="line"></div>
+
+				</div>
+		</div>
+		<div class="mainContent">
+			<div class="Header">
+				<p>AlexCrypt</p>
+			</div>
+			<div class="steps step1">
+				<div class="stepsHeader">1. Выберите файл или введите текст для зашифрования. <br>*Для корректной работы шифратора вводите зашифрованный текст путем записи байтов</div>
+				<div class="content">
+					<div class="contentText">
+						<div class="contentHeader" onclick="showText(event);">
+							<h2>T</h2>
+							<h2>E</h2>
+							<h2>X</h2>
+							<h2>T</h2>
+						</div>
+					<div class="Areatext">
+							<textarea placeholder="Введите текст!" id="text" oninput="text_in_bin(event,text_bin);"></textarea>
+					</div>
+					<div class="Areabin">
+							<textarea id="text_bin" oninput="bin_in_text(event,text);"></textarea>
+					</div>
+					</div>
+					<div class="contentFile">
+						<div class="contentHeader" onclick="showFile(event);">
+							<h2>F</h2>
+							<h2>I</h2>
+							<h2>L</h2>
+							<h2>E</h2>
+						</div>
+						<label class="input-file" hidden>
+						   	<span class="input-file-text" type="text" id="span_text"></span>
+						   	<input type="file" name="file" oninput="progressFile(event);" id='input_file'>        
+					 	   	<span class="input-file-btn">Выберите файл</span>
+					 	</label>
+					</div>
+			  </div >
+			</div>
+
+			<!--Ключи-->
+			<div class="steps">
+				<div class="stepsHeader">2. Выберите файл или введите ключ шифрования.</div>
+				<div class="content">
+					<div class="contentText">
+						<div class="contentHeader" onclick="showText(event);">
+							<h2>T</h2>
+							<h2>E</h2>
+							<h2>X</h2>
+							<h2>T</h2>
+						</div>
+					<div class="Areatext">
+							<textarea hidden placeholder="Введите ключ!" id="keys" oninput="text_in_bin(event,keys_bin); "></textarea>
+					</div>
+					<div class="Areabin">
+							<textarea id="keys_bin" oninput="bin_in_text(event,keys);"></textarea>
+					</div>
+					</div>
+					<div class="contentFile">
+						<div class="contentHeader" onclick="showFile(event);">
+							<h2>F</h2>
+							<h2>I</h2>
+							<h2>L</h2>
+							<h2>E</h2>
+						</div>
+						<label class="input-file" hidden>
+						   	<span class="input-file-text" type="text" id="span_keys"></span>
+						   	<input type="file" name="file" oninput="progressFile(event);" id='input_key' >        
+					 	   	<span class="input-file-btn">Выберите файл</span>
+					 	</label>
+					</div>
+			  </div >
+			</div>	
+		<div class="steps step3">
+				<div class="stepsHeader">3. Выберите алгоритм шифрования.</div>
+					<div class="content select">
+						<div class="box">
+						  <select>
+						    <option>XOR</option>
+						    <option>AES</option>
+						    <option>DES</option>
+						    <option>RSA</option>
+						    <option>Diff</option>
+						  </select>
+						</div>
+					</div>
+		</div >
+			<div class="steps step3">
+				<div class="stepsHeader">4. Выберите тип результата(файл или текст).</div>
+					<div class="content select">
+						<div class="box">
+						  <select onchange="progressState.isResultFile = (this.value == 'false') ? false : true;">
+						    <option value="false">Текст(длина не более 1000 символов)</option>
+						    <option value="true">Файл</option>
+						  </select>
+						</div>
+					</div>
+		</div >
+
+			<div class="steps">
+			<div class="stepsHeader">5. Нажмите кнопку "Выполнить".</div>
+				<div class="wrap">
+				  <button class="button" onclick="convert();">Выполнить</button>
+				</div>
+			</div>
+		</div>
+</div>
+
+<div class="RealProgress">
+	<div class="Bar" id="Bar">0%</div>
+</div>
+<!-- Результат -->
+<div class="steps" id="Result_text" hidden>
+		<div class="stepsHeader">Результат ввиде файла или текста.</div>
+		<div class="content">
+			<div class="contentText">
+				<div class="contentHeader">
+					<h2>T</h2>
+					<h2>E</h2>
+					<h2>X</h2>
+					<h2>T</h2>
+				</div>
+				<div class="Areatext">
+					<textarea id="result" disabled></textarea>
+				</div>
+				<div class="Areabin">
+					<textarea id="result_bin" readonly oninput="bin_in_text(event,result);"></textarea>
+				</div>
+			</div>
+			
+		</div >
+</div>
+<div class="steps" id="Result_file" hidden>
+		<div class="stepsHeader">Результат ввиде файла.</div>
+		<div class="content">
+				<div class="contentFile">
+					<div class="contentHeader">
+						<h2>F</h2>
+						<h2>I</h2>
+						<h2>L</h2>
+						<h2>E</h2>
+					</div>
+					<label class="input-file">
+						<span class="input-file-text" id="filename"  type="text">file</span>    
+						<span class="input-file-btn" onclick="downloadAsFile(encryption.cryptotext);">Скачать файл</span>
+					</label>
+				</div>
+			</div>	
+</div >
+	<script type="text/javascript" src="script.js"></script>
+	<script src="jquery.min.js"></script>
+	<!--<script>
+	$('.input-file input[type=file]').on('change', function(){
+	let file = this.files[0];
+	$(this).closest('.input-file').find('.input-file-text').html(file.name);
+	});
+	</script>-->
+</body>
+</html>

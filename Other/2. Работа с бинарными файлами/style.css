@@ -1,0 +1,493 @@
+@font-face {
+  font-family: 'Rocher';
+  src: url(RocherColorGX.woff2);
+}
+@font-face {
+  font-family: 'Pangolin';
+  src: url(Pangolin-Regular.ttf);
+}
+body {
+	background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+	padding: 10px;
+}
+div.main {
+	display: flex;
+}
+div.mainContent {
+	width: 90%;
+	height: 100%;
+	box-sizing: border-box;
+}
+div.progressBar {
+	width: 10%;
+	box-sizing: border-box;
+}
+div.Header {
+	height: 80px;
+	/*background: radial-gradient(100% 100%,white,green);*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.main p{
+	text-align: center;
+	font-family: 'Rocher';
+	font-palette: --Header;
+	font-size: 60px;
+}
+@font-palette-values --Header {
+  font-family: Rocher;
+  base-palette: 11;
+  
+}
+
+@font-palette-values --Menu {
+  font-family: Rocher;
+  base-palette: 9;
+  
+}
+
+
+div.steps {
+	height: 300px;
+	padding-bottom: 2%;
+}
+div.step1 {
+	height: 350px;
+}
+
+div.steps div.stepsHeader{
+	padding: 20px;
+	box-sizing: border-box;
+	height: 20%;
+	font-family: "Pangolin";
+	text-shadow: -0.01em -0.01em 0.01em #000;
+	font-size: 40px;
+	color: #16692F;
+}
+div.steps div.content {
+	display: flex;
+	box-sizing: border-box;
+	height: 90%;
+	justify-content: space-between;
+	align-items: center;
+
+}
+div.steps div.content div.contentText, div.steps div.content div.contentFile{
+	width: 90%;
+	box-sizing: border-box;
+	display: flex;
+	padding: 5px;
+	align-items: stretch;
+	overflow: hidden;
+}
+div.steps div.content div.contentText div.contentHeader:hover {
+	box-shadow: 10px 12px 5px #83AF6A;
+	border-radius: 40px;
+}
+div.steps div.content div.contentText div.contentHeader, div.steps div.content div.contentFile div.contentHeader{
+	width: 8%;
+	/*width:100%*/
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+div.steps div.content div.contentHeader h2{
+	text-align: center;
+	font-family: 'Rocher';
+	font-palette: --Menu;
+	font-size: 60px;
+}
+div.steps div.content div.contentText div.Areatext, div.steps div.content div.contentText div.Areabin{
+	width: 47%;
+	box-sizing: border-box;
+}
+div.steps div.content div.contentText div.Areatext textarea, div.steps div.content div.contentText div.Areabin textarea {
+	display: block;
+	margin: 0 auto;
+	box-sizing: border-box;
+	resize: none;
+	height: 98%;
+	width: 98%;
+	border-radius: 40px;
+	padding: 20px;
+	background: #37B95E;
+	border: none;
+	outline: none;
+	font-size: 24px;
+	font-family: "Pangolin";
+	color: #fff;
+}
+
+div.steps div.content div.contentFile{
+	width: 8%;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-between;
+}
+div.steps div.content div.contentFile div.contentHeader{
+	width: 100%;
+}
+div.steps div.content div.contentFile div.contentHeader:hover {
+	box-shadow: -10px 12px 5px #26696E;
+	border-radius: 40px;
+}
+div.steps div.content div.contentFile .input-file {
+	position: relative;
+	/*display: inline-block;*/
+	display: none;
+}
+div.steps div.content div.contentFile .input-file-text {
+	padding: 0 10px;
+	line-height: 60px;
+	text-align: left;
+	height: 60px;
+	font-size: 24px;
+	font-family: "Pangolin";
+	color: #fff;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+	width: 400px;
+	border-radius: 6px 0px 0 6px;
+	border: 1px solid #ddd;
+}
+div.steps div.content div.contentFile .input-file-btn {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 25px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 0 4px 4px 0;
+	background-color: #419152;
+	line-height: 40px;
+	height: 60px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+div.steps div.content div.contentFile .input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ 
+/* Hover/active */
+div.steps div.content div.contentFile .input-file:hover .input-file-btn {
+	background-color: #59be6e;
+}
+div.steps div.content div.contentFile .input-file:active .input-file-btn {
+	background-color: #2E703A;
+}
+ 
+/* Disabled */
+div.steps div.content div.contentFile .input-file input[type=file]:disabled + .input-file-btn {
+	background-color: #eee;
+}
+
+
+/* SELECT */
+div.step3 {
+	height: 180px;
+}
+div.steps div.select {
+	margin-left: 1.5%;
+	height: 100%;
+}
+.box {
+  position: relative;
+  width: 30%;
+}
+
+.box select {
+  background-color: #258B40;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: none;
+  outline: none;
+}
+
+.box::before {
+  content: '\25BC';
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+/* ProgressBar1 */
+
+
+
+
+
+:root {
+  --line-border-fill: #286828; /*#C31D1D*/
+  --line-border-empty: #C31D1D;
+}
+
+
+.container {
+  margin-top: 15px;
+  text-align: center;
+  height: 100%;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 650px;
+  height: 100%;
+}
+
+.progress {
+  background: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+}
+
+.circle {
+  background: #DE4212;
+  color: #fff;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--line-border-empty);
+}
+.line {
+	width: 6px;
+	height: 835px;
+	background-color: #C31D1D;
+	position: absolute;
+	top: 210px;
+	left: 5.5%;
+	z-index: -2;
+}
+.line.red {
+	z-index: -1;
+	top: 190px;
+	left: 55px;
+	height: 1000px; /*0px 400px 750px  1000px*/
+	background-color: #286828;
+}
+.circle1 {
+  margin-top: 80px;
+}
+.circle2 {
+  margin-top: 270px;
+}
+.circle3 {
+  margin-top: 225px;
+}
+.circle4 {
+  margin-top: 115px;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+  background: #37B95E;
+  position: absolute;
+}
+.over{
+	width: 110px;
+	height: 0px;
+	overflow: hidden;
+	box-sizing: content-box;
+	position: absolute;
+	padding: 0;
+	border: 0;
+	transition: all 2s linear 0s;
+}
+.over1 {
+  margin-top: 80px;
+}
+.over2 {
+  margin-top: 460px;
+}
+.over3 {
+  margin-top: 795px;
+}
+.over4 {
+  margin-top: 1020px;
+}
+/*Button */
+
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #1FFF79;
+  /*background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);*/
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(23,169,81,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #1FFF79;
+  box-shadow: 0 0 60px rgba(0,255,203,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+button:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #1FFF79;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+/*  animation: ring 1.5s infinite;*/
+}
+
+button:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+/*
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+*/
+/* Real Progress */
+.RealProgress {
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+
+}
+.RealProgress .Bar{
+	width: 90%;
+	border-radius: 20px;
+	border: 4px solid #286828;
+	text-align: center;
+	vertical-align: middle;
+	font-family: "Pangolin";
+	background: linear-gradient(to right, #37B95E 0%, transparent 0%);
+	font-size: 36px;
+	color: #fff;
+	line-height: 60px;
+	height: 30%;
+}
+
+
+/*    Result    */
+
+
+div#Result_file div.content div.contentFile {
+	width: 50%;
+	flex-direction: row;
+} 
+div#Result_file div.content div.contentFile div.contentHeader{
+	width: 16%;
+} 
+div#Result_file div.content div.contentFile .input-file{
+	display: inline-block;
+} 
+
+div#Result_file div.content div.contentFile div.contentHeader:hover{
+	box-shadow: initial;
+	border-radius: initial;
+	cursor: initial;
+}
+div#Result_text div.content div.contentText div.contentHeader:hover{
+	box-shadow: initial;
+	border-radius: initial;
+	cursor: initial;
+}
